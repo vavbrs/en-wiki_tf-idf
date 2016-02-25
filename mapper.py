@@ -2,14 +2,18 @@
 import sys
 from collections import Counter
 
+# halo brat
 
-for line in std.stdin:
+for line in sys.stdin:
     data = line.split('\t')
-    content = data[1].lower().split()
-    counter = Counter(content)
     
+    docid = int(data[0])
+    content = data[1].lower().split()
+    
+    counter = Counter(content)
     words = counter.keys()
+    sys.stdout.flush()
     counts = counter.values()
     
-    for i in len(words):
+    for i in range(len(words)):
         print "%s\t%s %s" % (words[i], docid, counts[i])
